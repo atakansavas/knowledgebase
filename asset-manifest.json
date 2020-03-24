@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/knowledgebase/static/css/main.1f9e3e2b.chunk.css",
+    "main.js": "/knowledgebase/static/js/main.7c5562ab.chunk.js",
+    "main.js.map": "/knowledgebase/static/js/main.7c5562ab.chunk.js.map",
+    "runtime-main.js": "/knowledgebase/static/js/runtime-main.df752949.js",
+    "runtime-main.js.map": "/knowledgebase/static/js/runtime-main.df752949.js.map",
+    "static/css/2.a8243bee.chunk.css": "/knowledgebase/static/css/2.a8243bee.chunk.css",
+    "static/js/2.6c30d070.chunk.js": "/knowledgebase/static/js/2.6c30d070.chunk.js",
+    "static/js/2.6c30d070.chunk.js.map": "/knowledgebase/static/js/2.6c30d070.chunk.js.map",
+    "index.html": "/knowledgebase/index.html",
+    "precache-manifest.a1dac13ef351ad280b63475f39959ae6.js": "/knowledgebase/precache-manifest.a1dac13ef351ad280b63475f39959ae6.js",
+    "service-worker.js": "/knowledgebase/service-worker.js",
+    "static/css/2.a8243bee.chunk.css.map": "/knowledgebase/static/css/2.a8243bee.chunk.css.map",
+    "static/css/main.1f9e3e2b.chunk.css.map": "/knowledgebase/static/css/main.1f9e3e2b.chunk.css.map",
+    "static/media/flaticon.css": "/knowledgebase/static/media/Flaticon2.eafcbac0.ttf",
+    "static/media/Search.5c98a9b7.svg": "/knowledgebase/static/media/Search.5c98a9b7.svg",
+    "static/media/all.min.css": "/knowledgebase/static/media/fa-solid-900.cdfec5cf.woff",
+    "static/media/line-awesome.css": "/knowledgebase/static/media/line-awesome.8b129059.woff",
+    "static/media/socicon.css": "/knowledgebase/static/media/socicon.a35b6574.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.df752949.js",
+    "static/css/2.a8243bee.chunk.css",
+    "static/js/2.6c30d070.chunk.js",
+    "static/css/main.1f9e3e2b.chunk.css",
+    "static/js/main.7c5562ab.chunk.js"
+  ]
+}
