@@ -20,11 +20,11 @@ export const initLayoutConfig = {
       shape: ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
     }
   },
-  self: {
-    body: {
-      "background-image": toAbsoluteUrl("/media/demos/demo4/header.jpg")
-    }
-  },
+  // self: {
+  //   body: {
+  //     "background-image": toAbsoluteUrl("/media/demos/demo4/header.jpg")
+  //   }
+  // },
   loader: {
     enabled: true,
     type: "brand"
