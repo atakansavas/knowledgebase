@@ -24,6 +24,7 @@ export default (props: any) => {
     const dispatch = useLayoutDispatch()
     dispatch(ActionTypes.SHOW_SEARCH_BAR);
 
+    const backgroundImage = 'media/bg/bg-9.jpg';
     const [isLoading, setLoading] = useState<boolean>(false);
     const [data, setData] = useState<SearchResponse[]>([]);
     const [query, setQuery] = useState<string>('');
