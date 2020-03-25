@@ -12,7 +12,7 @@ export default () => {
 
     return (
         <div >
-            <Route path="/dashboard" component={Home} />
+            <Route path="/" component={Home} />
             <Route path="/companies" component={Company} />
 
         </div>
