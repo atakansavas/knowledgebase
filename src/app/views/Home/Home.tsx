@@ -80,9 +80,14 @@ export default (props: any) => {
                         </div>
                     </div>
                     <div className="kt-sc__bottom">
-                        <h3 className="kt-sc__heading kt-heading kt-heading--center kt-heading--xxl kt-heading--medium">
-                            How can we help?
-										</h3>
+                        <h3 className="kt-heading kt-heading--center kt-heading--xxl kt-heading--medium">
+                            Çalışacak harika yerler bul
+                        </h3>
+
+                        <h5 className="kt-heading kt-heading--center kt-heading--l kt-heading--medium">
+                            200 milyon şirket yorumunu ve değerlendirmeyi keşfedin
+                        </h5>
+
                         <Dropdown
                             // className="kt-header__topbar-item kt-header__topbar-item--search"
                             drop="down"
@@ -116,7 +121,7 @@ export default (props: any) => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            placeholder="Ask a question"
+                                            placeholder="Firma adi girin."
                                             aria-describedby="basic-addon1"
                                             value={query}
                                             onChange={e => handleSearchChange(e)}
@@ -139,7 +144,19 @@ export default (props: any) => {
 
 
                             <Dropdown.Menu style={{ width: '100%' }} className="dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-lg">
-                                <div
+
+                                <PerfectScrollbar
+                                    className="kt-quick-search__wrapper kt-scroll"
+                                    data-height="325"
+                                    data-mobile-height="200"
+                                    data-scroll="true"
+                                    options={perfectScrollbarOptions}
+                                    style={{ maxHeight: "40vh" }}
+                                >
+                                    <CompanySearchResult data={data} />
+                                </PerfectScrollbar>
+
+                                {/* <div
                                     id="kt_quick_search_dropdown"
                                     className={clsx(
                                         "kt-quick-search kt-quick-search--dropdown kt-quick-search--result-compact",
@@ -148,18 +165,8 @@ export default (props: any) => {
                                         }
                                     )}
                                 >
-
-                                    <PerfectScrollbar
-                                        className="kt-quick-search__wrapper kt-scroll"
-                                        data-height="325"
-                                        data-mobile-height="200"
-                                        data-scroll="true"
-                                        options={perfectScrollbarOptions}
-                                        style={{ maxHeight: "40vh" }}
-                                    >
-                                        <CompanySearchResult data={data} />
-                                    </PerfectScrollbar>
-                                </div>
+                                  
+                                </div> */}
                             </Dropdown.Menu>
                         </Dropdown>
 

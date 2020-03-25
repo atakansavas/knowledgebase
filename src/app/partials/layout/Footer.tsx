@@ -20,9 +20,7 @@ export default () => {
                             <div className="kt-footer__section">
                                 <h3 className="kt-footer__title">About</h3>
                                 <div className="kt-footer__content">
-                                    Whatever method you chosse,these nine will make you
-                                    re-think theway you craft healines Why? Because they all
-                                    have points in that are worth from a point of view.
+                                    Hayalinizdeki ise ulasmak zannettiginizden daha da kolay.
                     </div>
                             </div>
                         </div>

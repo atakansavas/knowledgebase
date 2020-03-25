@@ -21,7 +21,7 @@ function App() {
             <Switch>
               {
                 /* Redirect from root URL to /dashboard. */
-                <Redirect exact from="/" to="/dashboard" />
+                <Redirect exact from="/" to="/home" />
               }
               <Route path="/error" component={Error} />
 

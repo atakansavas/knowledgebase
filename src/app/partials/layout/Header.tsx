@@ -6,9 +6,14 @@ import Topbar from "./Header/Topbar";
 import HMenuItem from "../../../_metronic/layout/header/HMenu/HMenuItem";
 import MenuConfig from "./Header/MenuConfig";
 import { LayoutProvider, useLayoutDispatch, useLayoutState } from "../../contexts/Layout/LayoutContext";
+import Menus from "../content/Menus";
 
 
 export default () => {
+
+    const menu = Menus;
+
+    console.log(menu);
 
     const menuItems = MenuConfig.header.items;
 
@@ -65,35 +70,39 @@ export default () => {
                         id="kt_header_menu_wrapper"
                     >
 
-                        {
+                        <div
+                            id="kt_header_menu"
+                            className={`kt-header-menu kt-header-menu-mobile`}
+                        >
+                            <ul className={`kt-menu__nav`}>
+                                <HMenuItem item="Custom"
+                                />
+
+
+                                {menuItems.map((item, index) => {
+                                    return (
+                                        <React.Fragment key={`hmenuList${index}`}>
+                                            {item.title && (
+                                                <HMenuItem
+                                                    item={item}
+                                                    currentUrl={"this.currentUrl"}
+                                                    rootArrowEnabled={true}
+                                                />
+                                            )}
+                                        </React.Fragment>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+
+                        {/* {
                             IsShowSearchBar ? (
-                                <div
-                                    id="kt_header_menu"
-                                    className={`kt-header-menu kt-header-menu-mobile`}
-                                >
-                                    <ul className={`kt-menu__nav`}>
-                                        <HMenuItem item="Custom"
-                                        />
-                                        {menuItems.map((item, index) => {
-                                            return (
-                                                <React.Fragment key={`hmenuList${index}`}>
-                                                    {item.title && (
-                                                        <HMenuItem
-                                                            item={item}
-                                                            currentUrl={"this.currentUrl"}
-                                                            rootArrowEnabled={true}
-                                                        />
-                                                    )}
-                                                </React.Fragment>
-                                            );
-                                        })}
-                                    </ul>
-                                </div>
+                              
                             ) : (
                                     <>
                                     </>
                                 )
-                        }
+                        } */}
 
 
 
