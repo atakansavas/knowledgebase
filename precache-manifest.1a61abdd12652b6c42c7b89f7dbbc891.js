@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bc4240f5ca04a1e372db27ca7eb4c7a0",
+    "revision": "79ee37c18ad1c2af71cceabb1a66dbb4",
     "url": "/knowledgebase/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/knowledgebase/static/css/2.a8243bee.chunk.css"
   },
   {
-    "revision": "f56d8c92563005169a74",
+    "revision": "3252b22cde87a918e1a7",
     "url": "/knowledgebase/static/css/main.1f9e3e2b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/knowledgebase/static/js/2.6c30d070.chunk.js"
   },
   {
-    "revision": "f56d8c92563005169a74",
-    "url": "/knowledgebase/static/js/main.7c5562ab.chunk.js"
+    "revision": "3252b22cde87a918e1a7",
+    "url": "/knowledgebase/static/js/main.22a8f0f6.chunk.js"
   },
   {
     "revision": "1c4debef67e743a563ee",
