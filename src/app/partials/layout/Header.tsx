@@ -4,21 +4,13 @@ import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../_metronic";
 import Topbar from "./Header/Topbar";
 import HMenuItem from "../../../_metronic/layout/header/HMenu/HMenuItem";
-import MenuConfig from "./Header/MenuConfig";
+// import MenuConfig from "./Header/MenuConfig";
 import { LayoutProvider, useLayoutDispatch, useLayoutState } from "../../contexts/Layout/LayoutContext";
-import Menus from "../content/Menus";
-
+import MenuConfig from "./Header/MenuConfig";
 
 export default () => {
 
-    const menu = Menus;
-
-    console.log(menu);
-
-    const menuItems = MenuConfig.header.items;
-
     const { IsShowSearchBar } = useLayoutState();
-
 
     const getHeaderLogo = () => {
         let result = "logo-light.png";
@@ -75,23 +67,21 @@ export default () => {
                             className={`kt-header-menu kt-header-menu-mobile`}
                         >
                             <ul className={`kt-menu__nav`}>
-                                <HMenuItem item="Custom"
-                                />
-
-
-                                {menuItems.map((item, index) => {
-                                    return (
-                                        <React.Fragment key={`hmenuList${index}`}>
-                                            {item.title && (
-                                                <HMenuItem
-                                                    item={item}
-                                                    currentUrl={"this.currentUrl"}
-                                                    rootArrowEnabled={true}
-                                                />
-                                            )}
-                                        </React.Fragment>
-                                    );
-                                })}
+                                {
+                                    MenuConfig.map((item, index) => {
+                                        return (
+                                            <React.Fragment key={`hmenuList${index}`}>
+                                                {item.title && (
+                                                    <HMenuItem
+                                                        item={item}
+                                                        currentUrl={"this.currentUrl"}
+                                                        rootArrowEnabled={true}
+                                                    />
+                                                )}
+                                            </React.Fragment>
+                                        );
+                                    })
+                                }
                             </ul>
                         </div>
 
