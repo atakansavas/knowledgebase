@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
-import { SearchResponse } from "../../models/SearchResponse";
+import { SearchResponse } from "../../../models/SearchResponse";
+import { Link } from "react-router-dom";
 
 interface Props {
     data: SearchResponse[]
@@ -33,9 +34,10 @@ export default (props: Props) => {
                             </div>
 
                             <div className="kt-quick-search__item-wrapper">
-                                <a href={"/company?id=" + item.id} className="kt-quick-search__item-title">
+                                <Link to={"/company?id=" + item.id} className='kt-quick-search__item-title'>
                                     {item.name}
-                                </a>
+                                </Link>
+
                                 <div className="kt-quick-search__item-desc">
                                     {item.description}
                                 </div>

@@ -10,7 +10,7 @@ import { ApiUrl } from "../../common/enums/ApiUrl";
 import { MethodName } from "../../common/enums/MethodName";
 import RequestHelper from "../../services/RequestHelper";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import CompanySearchResult from "../../partials/content/CompanySearchResult";
+import CompanySearchResult from "./components/CompanySearchResult";
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import { Dropdown } from "react-bootstrap";
 import HeaderDropdownToggle from "../../partials/content/CustomDropdowns/HeaderDropdownToggle";

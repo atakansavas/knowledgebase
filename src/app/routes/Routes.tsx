@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouteMatch, BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
 import Home from '../views/Home/Home';
-import Company from "../views/Companies/Company";
+import Company from "../views/Company/Company";
 
 export default () => {
     // const cssClasses =
@@ -13,7 +13,7 @@ export default () => {
     return (
         <div >
             <Route path="/home" component={Home} />
-            <Route path="/companies" component={Company} />
+            <Route path="/company" component={Company} />
 
         </div>
     )
