@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import { Container, Typography } from "@material-ui/core";
 import HeaderNotice from "../../partials/content/HeaderNotice";
-import { useLayoutDispatch } from "../../contexts/Layout/LayoutContext";
-import { ActionTypes } from "../../contexts/Layout/ActionTypes";
 import { SearchResponse } from "../../models/SearchResponse";
 import RequestDto from "../../models/system/RequestDto";
 import { ApiUrl } from "../../common/enums/ApiUrl";
@@ -49,12 +47,12 @@ export default (route: RouteComponentProps) => {
     return (
         <>
             {/* // <!-- begin:: Subheader --> */}
+
             {/* <div className="kt-subheader   kt-grid__item" id="kt_subheader">
                 <div className="kt-container ">
                     <div className="kt-subheader__main">
                         <h3 className="kt-subheader__title">
                             {company.name}
-
                         </h3>
                         <div className="kt-subheader__breadcrumbs">
                             <a href="#" className="kt-subheader__breadcrumbs-home"><i className="flaticon2-shelter"></i></a>
@@ -112,9 +110,8 @@ export default (route: RouteComponentProps) => {
                                             </div>
                                             <div className="kt-widget__info">
                                                 <div className="kt-widget__desc">
-                                                    I distinguish three main text objektive could be merely to inform people.
-																	<br /> A second could be persuade people.You want people to bay objective
-																</div>
+                                                    {company.address}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -209,7 +206,7 @@ export default (route: RouteComponentProps) => {
 
                         <div className="kt-portlet kt-portlet--height-fluid">
 
-                            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+                            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="nav nav-pills nav-pills-sm nav-pills-label nav-pills-bold">
                                 <Tab eventKey="home" title="Work Enviorment">
                                     <div className="kt-notification">
                                         <a href="#" className="kt-notification__item">

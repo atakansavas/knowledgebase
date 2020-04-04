@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import clsx from "clsx";
 import { Container, Typography } from "@material-ui/core";
 import HeaderNotice from "../../partials/content/HeaderNotice";
-import { useLayoutDispatch } from "../../contexts/Layout/LayoutContext";
-import { ActionTypes } from "../../contexts/Layout/ActionTypes";
 import { SearchResponse } from "../../models/SearchResponse";
 import RequestDto from "../../models/system/RequestDto";
 import { ApiUrl } from "../../common/enums/ApiUrl";
@@ -14,6 +12,7 @@ import CompanySearchResult from "./components/CompanySearchResult";
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import { Dropdown } from "react-bootstrap";
 import HeaderDropdownToggle from "../../partials/content/CustomDropdowns/HeaderDropdownToggle";
+import { AppContext } from "../../contexts/Layout/Index";
 
 const perfectScrollbarOptions = {
     wheelSpeed: 2,
@@ -21,8 +20,14 @@ const perfectScrollbarOptions = {
 };
 
 export default (props: any) => {
-    const dispatch = useLayoutDispatch()
-    dispatch(ActionTypes.SHOW_SEARCH_BAR);
+    // const dispatch = useLayoutDispatch()
+    // dispatch(ActionTypes.SHOW_SEARCH_BAR);
+
+    const context = useContext(AppContext);
+
+    const { isLoggedIn, userName, setLogin } = context;
+    // setLogin(false);
+
 
     const backgroundImage = 'media/bg/bg-9.jpg';
     const [isLoading, setLoading] = useState<boolean>(false);
@@ -38,7 +43,6 @@ export default (props: any) => {
     function handleSearchChange(event: React.FormEvent<HTMLInputElement>) {
         setData([]);
         setQuery(event.currentTarget.value);
-
     };
 
     useEffect(() => {

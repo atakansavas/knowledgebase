@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import SearchDropdown from "../SearchDropdown";
-// import UserNotifications from "../UserNotifications";
-// import LanguageSelector from "../LanguageSelector";
-// import { toAbsoluteUrl } from "../../../../_metronic/utils/utils";
 import UserProfile from "./UserProfile";
+// import { LayoutContext } from "../../../contexts/Layout/Index";
+// import QuickActionsPanel from "./Login";
+import { toAbsoluteUrl } from "../../../../_metronic";
+import { AppContext } from "../../../contexts/Layout/Index";
+import Login from "./Login";
+
+
+
 
 export default () => {
+    const context = useContext(AppContext);
+    const { isLoggedIn, userName, setLogin } = context;
+    // const { isLoggedIn } = useContext(LayoutContext);
+
+
 
     return (
         <div className="kt-header__topbar kt-grid__item">
@@ -23,8 +33,24 @@ export default () => {
                 dot="false"
             /> */}
 
+            {
+                isLoggedIn ?
+                    (<UserProfile />) :
+                    (<Login />)
+            }
 
-            <UserProfile />
+
+
+            {/* <QuickActionsPanel
+            /> */}
+
+            {/* {
+                !isLoggedIn &&
+                (
+                    <UserProfile />
+                )
+            } */}
+
 
 
         </div>

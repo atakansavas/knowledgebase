@@ -5,12 +5,9 @@ import { toAbsoluteUrl } from "../../../_metronic";
 import Topbar from "./Header/Topbar";
 import HMenuItem from "../../../_metronic/layout/header/HMenu/HMenuItem";
 // import MenuConfig from "./Header/MenuConfig";
-import { LayoutProvider, useLayoutDispatch, useLayoutState } from "../../contexts/Layout/LayoutContext";
 import MenuConfig from "./Header/MenuConfig";
 
 export default () => {
-
-    const { IsShowSearchBar } = useLayoutState();
 
     const getHeaderLogo = () => {
         let result = "logo-light.png";

@@ -1,11 +1,23 @@
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import HeaderDropdownToggle from "../../content/CustomDropdowns/HeaderDropdownToggle";
 import { toAbsoluteUrl } from "../../../../_metronic/utils/utils";
+import { AppContext } from "../../../contexts/Layout/Index";
+import { Button } from "react-bootstrap";
 
 export default () => {
+  const context = useContext(AppContext);
+  const { userName, setLogin, setUserName } = context;
+
+  // const [uName, setUName] = useState("");
+  // const [password, setPassword] = useState("");
+
+  const SignOut = () => {
+    setLogin(false);
+    setUserName("");
+  }
 
   return (
     <Dropdown
@@ -27,14 +39,14 @@ export default () => {
             </span>
 
           <span className="kt-header__topbar-username kt-hidden-mobile">
-            HAKKI
-            </span>
+            {userName}
+          </span>
 
           {/* <img alt="Pic" src={"user.pic"} /> */}
 
           <span className="kt-header__topbar-icon">
             {/* TODO: Should get from currentUser */}
-            <b>H</b>
+            <b>{userName.substring(0, 2)}</b>
           </span>
         </div>
       </Dropdown.Toggle>
@@ -113,12 +125,12 @@ export default () => {
             </div>
           </a>
           <div className="kt-notification__custom">
-            <Link
-              to="/logout"
+            <Button
+              onClick={SignOut}
               className="btn btn-label-brand btn-sm btn-bold"
             >
               Sign Out
-              </Link>
+              </Button>
           </div>
         </div>
       </Dropdown.Menu>
