@@ -8,7 +8,7 @@ import { ReactComponent as MailAttachmentIcon } from "../../../../_metronic/layo
 import { ReactComponent as BoxNum2Icon } from "../../../../_metronic/layout/assets/layout-svg-icons/BoxNum2.svg";
 import { ReactComponent as GroupIcon } from "../../../../_metronic/layout/assets/layout-svg-icons/Group.svg";
 import HeaderDropdownToggle from "../../content/CustomDropdowns/HeaderDropdownToggle";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button, Container, Jumbotron } from "react-bootstrap";
 import { AppContext } from "../../../contexts/Layout/Index";
 
 export default () => {
@@ -66,7 +66,7 @@ export default () => {
                 </div>
                 {/* end: Head */}
 
-                <Container>
+                <Jumbotron style={{ marginBottom: 0 }}>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Username</Form.Label>
@@ -80,14 +80,31 @@ export default () => {
                             <Form.Label>Password</Form.Label>
                             <Form.Control onChange={(event: any) => setPassword(event.currentTarget.value)} type="password" placeholder="Password" />
                         </Form.Group>
-                        {/* <Form.Group controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
-                        </Form.Group> */}
                         <Button variant="primary" onClick={handleSubmit} type="button">
                             Submit
-                </Button>
+                        </Button>
                     </Form>
-                </Container>
+                </Jumbotron>
+
+                {/* <Container>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control onChange={(event: any) => setUName(event.currentTarget.value)} type="text" placeholder="Enter username" />
+                            <Form.Text className="text-muted">
+                                We'll never share your email with anyone else.
+                            </Form.Text>
+                        </Form.Group>
+
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control onChange={(event: any) => setPassword(event.currentTarget.value)} type="password" placeholder="Password" />
+                        </Form.Group>
+                        <Button variant="primary" onClick={handleSubmit} type="button">
+                            Submit
+                        </Button>
+                    </Form>
+                </Container> */}
 
             </Dropdown.Menu>
         </Dropdown>
