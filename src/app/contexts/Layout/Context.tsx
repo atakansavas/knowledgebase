@@ -5,35 +5,30 @@ interface AppContextInterface {
     setLogin: (isLoggedIn: boolean) => void;
     userName: string,
     setUserName: (userName: string) => void;
+    token: string,
+    setToken: (token: string) => void;
 }
 
 export const Context = createContext<AppContextInterface>({} as AppContextInterface);
 
 export const Provider = (props: any) => {
-    // Initial values are obtained from the props
-    // const {
-    //     children
-    // } = props;
 
     // Use State to keep the values
     const [isLoggedIn, setLogin] = useState(false);
     const [userName, setUserName] = useState("");
-
-    //   const addNewUser = userName => {
-    //     const newUser = { id: new Date().getTime().toString(), name: userName };
-    //     setUsers(users.concat([newUser]));
-    //   };
+    const [token, setToken] = useState("");
 
     // Make the context object:
     const appContext = {
         isLoggedIn,
         setLogin,
         userName,
-        setUserName
+        setUserName,
+        token,
+        setToken
     };
 
     // pass the value in provider and return
-    // return <AppContext.Provider value={ appContext }> { props.children } </Context.Provider>;
     return <Context.Provider value={appContext}>{props.children}</Context.Provider>
 };
 

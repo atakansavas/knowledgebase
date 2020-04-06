@@ -1,5 +1,5 @@
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import clsx from "clsx";
 import Dropdown from "react-bootstrap/Dropdown";
 import { ReactComponent as EqualizerIcon } from "../../../../_metronic/layout/assets/layout-svg-icons/Equalizer.svg";
@@ -8,25 +8,51 @@ import { ReactComponent as MailAttachmentIcon } from "../../../../_metronic/layo
 import { ReactComponent as BoxNum2Icon } from "../../../../_metronic/layout/assets/layout-svg-icons/BoxNum2.svg";
 import { ReactComponent as GroupIcon } from "../../../../_metronic/layout/assets/layout-svg-icons/Group.svg";
 import HeaderDropdownToggle from "../../content/CustomDropdowns/HeaderDropdownToggle";
-import { Form, Button, Container, Jumbotron } from "react-bootstrap";
+import { Form, Button, Container, Jumbotron, Spinner, Alert } from "react-bootstrap";
 import { AppContext } from "../../../contexts/Layout/Index";
+import RequestHelper from "../../../services/RequestHelper";
+import RequestDto from "../../../models/system/RequestDto";
+import { ApiUrl } from "../../../common/enums/ApiUrl";
+import { MethodName } from "../../../common/enums/MethodName";
+import { LoginResponse } from "../../../models/LoginResponse";
 
 export default () => {
     const context = useContext(AppContext);
-    const { isLoggedIn, userName, setLogin, setUserName } = context;
+    const { setLogin, setUserName, setToken } = context;
 
     const [uName, setUName] = useState("");
     const [password, setPassword] = useState("");
-
+    const [isLoading, setLoading] = useState<boolean>(false);
+    const [isError, setError] = useState<boolean>(false);
 
     const handleSubmit = () => {
-        console.log(uName + "username");
-        console.log(password + "password");
+        setError(false);
+        setLoading(true);
+        const fetchData = async () => {
 
-        //TODO: Servise gidilecek kodlar buraya yazilacak.
+            const requestDto = new RequestDto();
+            requestDto.apiUrl = ApiUrl.BaseApi;
+            requestDto.methodName = MethodName.Login;
+            requestDto.requestObject =
+                "username=" + uName +
+                "&password=" + password;
 
-        setUserName(uName);
-        setLogin(true);
+            const loginResponse = await RequestHelper.Get<LoginResponse>(requestDto);
+            console.log(loginResponse);
+
+            if (loginResponse.response.isSucceed) {
+                setUserName(uName);
+                setToken(loginResponse.response.token)
+                setLogin(true);
+            }
+            else {
+                setError(true);
+                setLogin(false);
+            }
+
+            setLoading(false);
+        };
+        fetchData();
     };
 
     return (
@@ -35,14 +61,8 @@ export default () => {
                 as={HeaderDropdownToggle}
                 id="dropdown-toggle-quick-actions-panel-toggle"
             >
-                <span
-                    className="kt-header__topbar-icon"
-                >
-                    {/* {!useSVG && <i className={icon} />}
-
-                    {useSVG && ( */}
+                <span className="kt-header__topbar-icon">
                     <EqualizerIcon className="kt-svg-icon kt-svg-icon--lg" />
-                    {/* )} */}
                 </span>
             </Dropdown.Toggle>
 
@@ -67,6 +87,11 @@ export default () => {
                 {/* end: Head */}
 
                 <Jumbotron style={{ marginBottom: 0 }}>
+                    {isError && (
+                        <Alert variant="danger">
+                            Login error
+                        </Alert>
+                    )}
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Username</Form.Label>
@@ -80,31 +105,17 @@ export default () => {
                             <Form.Label>Password</Form.Label>
                             <Form.Control onChange={(event: any) => setPassword(event.currentTarget.value)} type="password" placeholder="Password" />
                         </Form.Group>
-                        <Button variant="primary" onClick={handleSubmit} type="button">
-                            Submit
+                        <Button
+                            variant="primary"
+                            onClick={handleSubmit}
+                            disabled={isLoading}
+                            type="button">
+                            {!isLoading && "Login"}
+                            {isLoading && <Spinner animation="border" variant="info" />}
+
                         </Button>
                     </Form>
                 </Jumbotron>
-
-                {/* <Container>
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Username</Form.Label>
-                            <Form.Control onChange={(event: any) => setUName(event.currentTarget.value)} type="text" placeholder="Enter username" />
-                            <Form.Text className="text-muted">
-                                We'll never share your email with anyone else.
-                            </Form.Text>
-                        </Form.Group>
-
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control onChange={(event: any) => setPassword(event.currentTarget.value)} type="password" placeholder="Password" />
-                        </Form.Group>
-                        <Button variant="primary" onClick={handleSubmit} type="button">
-                            Submit
-                        </Button>
-                    </Form>
-                </Container> */}
 
             </Dropdown.Menu>
         </Dropdown>

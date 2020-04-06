@@ -38,7 +38,7 @@ class RequestHelper {
     }
 
     async Post<T>(request: RequestDto): Promise<ResponseDto<T>> {
-        return this.callApi<T>(request, "POST");
+        return await this.callApi<T>(request, "POST");
     }
 
     async Get<T>(request: RequestDto): Promise<ResponseDto<T>> {

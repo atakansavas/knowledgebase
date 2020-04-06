@@ -3,6 +3,7 @@ import SearchDropdown from "../SearchDropdown";
 import UserProfile from "./UserProfile";
 import { AppContext } from "../../../contexts/Layout/Index";
 import Login from "./Login";
+import Register from "./Register";
 
 export default () => {
     const context = useContext(AppContext);
@@ -26,8 +27,15 @@ export default () => {
 
             {
                 isLoggedIn ?
-                    (<UserProfile />) :
-                    (<Login />)
+                    (
+                        <UserProfile />
+                    ) :
+                    (
+                        <>
+                            <Login />
+                            <Register />
+                        </>
+                    )
             }
 
 
