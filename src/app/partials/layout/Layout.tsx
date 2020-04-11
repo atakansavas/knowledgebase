@@ -7,6 +7,7 @@ import Footer from './Footer';
 import QuickPanel from './QuickPanel';
 import ScrollTop from './ScrollTop';
 import Routes from '../../routes/Routes';
+import Alert from '../../components/Alert';
 
 
 
@@ -14,6 +15,8 @@ export default () => {
 
     return (
         <React.Fragment>
+            <Alert></Alert>
+
             <div className="kt-grid kt-grid--hor kt-grid--root">
                 {/* <!-- begin::Body --> */}
                 <div className="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">

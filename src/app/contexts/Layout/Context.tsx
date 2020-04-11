@@ -7,6 +7,11 @@ interface AppContextInterface {
     setUserName: (userName: string) => void;
     token: string,
     setToken: (token: string) => void;
+    alertStatus: boolean,
+    setAlertStatus: (alertStatus: boolean) => void;
+    alertContent: string,
+    setAlertContent: (alertContent: string) => void;
+
 }
 
 export const Context = createContext<AppContextInterface>({} as AppContextInterface);
@@ -17,6 +22,8 @@ export const Provider = (props: any) => {
     const [isLoggedIn, setLogin] = useState(false);
     const [userName, setUserName] = useState("");
     const [token, setToken] = useState("");
+    const [alertStatus, setAlertStatus] = useState(false);
+    const [alertContent, setAlertContent] = useState("");
 
     // Make the context object:
     const appContext = {
@@ -25,7 +32,11 @@ export const Provider = (props: any) => {
         userName,
         setUserName,
         token,
-        setToken
+        setToken,
+        alertStatus,
+        setAlertStatus,
+        setAlertContent,
+        alertContent
     };
 
     // pass the value in provider and return
